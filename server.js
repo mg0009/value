@@ -1,35 +1,34 @@
 const express = require("express");
 const app = express();
 
-// Default fallback value
-let SMID = "B53e1f1b8-5e3b-4c6d-9a41-b4f2d6e4c822";
+// default value
+let VALUE = "hello";
 
-// Root route (for testing)
+// test route
 app.get("/", (req, res) => {
-  res.send("SERVER WORKING");
+  res.send("SERVER OK");
 });
 
-// Get SMID (app will call this)
+// app yahan se value lega
 app.get("/get-smid", (req, res) => {
-  res.send(SMID);
+  res.send(VALUE);
 });
 
-// Change SMID from browser
+// browser se change karne ke liye
 app.get("/set-smid", (req, res) => {
-  const newValue = req.query.value;
+  const v = req.query.value;
 
-  if (newValue && newValue.trim() !== "") {
-    SMID = newValue.trim();
-    console.log("Updated SMID:", SMID);
-    res.send("Updated: " + SMID);
+  if (v && v.trim() !== "") {
+    VALUE = v.trim();
+    console.log("Updated:", VALUE);
+    res.send("Updated: " + VALUE);
   } else {
-    res.send("No value provided");
+    res.send("No value");
   }
 });
 
-// Port (Render uses dynamic port)
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log("Server running on port " + PORT);
 });
