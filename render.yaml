@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: dialog-text-server
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: DIALOG_TEXT
+        value: Welcome. This text is coming from Render server.
