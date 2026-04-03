@@ -1,16 +1,12 @@
 {
-  "name": "wespy-render-server",
+  "name": "dialog-text-server",
   "version": "1.0.0",
-  "description": "Simple render server for StartActivity dialog text",
-  "main": "server.js",
+  "private": true,
+  "type": "commonjs",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.19.2"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
   }
 }
