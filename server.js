@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 // Default fallback value
-let SMID = "B53e1f1b8-5e3b-4c6d-9a41-b8f2d6e4c822";
+let SMID = "B53e1f1b8-5e3b-4c6d-9a41-b4f2d6e4c822";
 
 // Root route (for testing)
 app.get("/", (req, res) => {
