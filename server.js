@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
-const defaultText = "Welcome. This text is coming from Render server.";
+const defaultText = "hacker.";
 
 app.get("/", (_req, res) => {
   res.json({
