@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // 🔥 runtime variable (changeable)
-let dialogText = "hacker.";
+let dialogText = "kashu ka bappu.";
 
 // -------------------------------
 // ROOT
