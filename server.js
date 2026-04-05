@@ -3,8 +3,12 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
-const defaultText = "hacker.";
+// 🔥 runtime variable (changeable)
+let dialogText = "hacker.";
 
+// -------------------------------
+// ROOT
+// -------------------------------
 app.get("/", (_req, res) => {
   res.json({
     ok: true,
@@ -13,14 +17,33 @@ app.get("/", (_req, res) => {
   });
 });
 
+// -------------------------------
+// GET TEXT
+// -------------------------------
 app.get("/api/dialog-text", (_req, res) => {
-  const text = process.env.DIALOG_TEXT || defaultText;
-
   res.json({
-    text
+    text: dialogText
   });
 });
 
+// -------------------------------
+// 🔥 SET TEXT (browser se change)
+// -------------------------------
+app.get("/set-text", (req, res) => {
+  const value = req.query.value;
+
+  if (!value) {
+    return res.send("Usage: /set-text?value=YOUR_TEXT");
+  }
+
+  dialogText = value;
+
+  console.log("Dialog updated:", dialogText);
+
+  res.send("Updated: " + dialogText);
+});
+
+// -------------------------------
 app.listen(port, () => {
-  console.log(`Dialog text server listening on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });
